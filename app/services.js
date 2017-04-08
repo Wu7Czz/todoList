@@ -1,16 +1,19 @@
-app.factory('getData',function($scope, $http){
+app.factory('getDataService', function($http) {
+  // //由服务获取基础数据的第一种方法from
+  // return {
+  //   from: function(url) {
+  //       return $http.get("/angular/json/"+url+".json");
+  //     },
+  // }
 
-    // $http.get("/angular/json/profile.json").then(function(res){
-    //   $scope.profleData = res.data;
-    // });    
-    // $http.get("/angular/json/base.json").then(function(res){
-    //   $scope.baseData = res.data;
-    // });    
-    // $http.get("/angular/json/todoLists.json").then(function(res){
-    //   $scope.listData = res.data;
-    // });    
-    // $http.get("/angular/json/detiles.json").then(function(res){
-    //   $scope.detiles = res.data;
-    // });
+  //由服务获取基础数据的第二种方法getData
+  return {
+    getData: function(){
+      return $http.get('/angular/json/profile.json').then(function(res){
+        return res.data;
+      });
+    }
+  };
+
 
 });
