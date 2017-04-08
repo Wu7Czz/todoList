@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>angular-test</title>
+    <link rel="stylesheet" href="app/main.css">
+</head>
+
+<body ng-controller="CartController">
+    <h1>Your Order</h1>
+    <div ng-repeat="item in items">
+        <span>{{item.title}}</span>
+        <input ng-model="item.quantity" />
+        <span>{{item.price | currency}}</span>
+        <span>{{item.price * item.quantity | currency}}</span>
+        <button ng-click="remove($index)">Remove</button>
+    </div>
+    <script src="src/angular.js"></script>
+    <script src="src/main.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

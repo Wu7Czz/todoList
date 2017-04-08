@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>angular-test</title>
+    <link rel="stylesheet" href="app/main.css">
+    <script src="src/angular.js"></script>
+    <script src="src/angular-route.js"></script>
+    <script src="src/lodash.js"></script>
+    <script src="app/app.js"></script>
+<!--     <script src="app/services.js"></script>
+    <script src="app/controllers.js"></script>
+    <script src="app/directives.js"></script>
+    <script src="app/filters.js"></script> -->
+   
+</head>
+
+<body ng-controller="todoController as ctrl">
+    <div id="todo" >
+        <div class="head">{{hex}}
+            <div class="loge">This is a todoLists WebApp</div>
+            <div class="loginOrUser" ng-click="ctrl.hi()">
+                吴其阳
+            </div>
+        </div>
+        <div class="left">
+            <div class="digest">
+                <h3>最近一个星期有{{profileData.latelyCount}}个任务需要完成</h3>
+                <h4>一共有{{profileData.amount}}个任务,其中有{{profileData.todoCount}}待办</h4>                
+            </div>
+            <div class="tags">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="searchBar">
+                <input type="text">
+                <button>serach</button>
+            </div>
+            <div class="listBox">
+                <ul>
+                    <li>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="todo">
+                
+            </div>
+            <div class="new">
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

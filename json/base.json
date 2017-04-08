@@ -1,0 +1,50 @@
+{
+  "users":[
+    {
+      "id":"1" ,
+      "name" : "yy",
+      "creatTime" : "2016-6-1",
+      "post" : "leader"
+    },
+    {
+      "id":"2" ,
+      "name" : "wu27",
+      "creatTime" : "2017-1-1",
+      "post" : "worker"
+    },
+    {
+      "id":"3" ,
+      "name" : "吴其阳",
+      "creatTime" : "2017-3-1",
+      "post" : "worker"
+    }
+  ],
+  "tags":[
+    {
+      "id":"1",
+      "tag":"学习"
+    },
+    {
+      "id":"2",
+      "tag":"工作"
+    },    
+    {
+      "id":"3",
+      "tag":"指控"
+    }
+  ],  
+  "priority":[
+    {
+      "id":"1",
+      "val":"高"
+    },
+    {
+      "id":"2",
+      "val":"一般"
+    },    
+    {
+      "id":"3",
+      "val":"低"
+    }
+  ]
+}
