@@ -33,6 +33,7 @@ app.controller("todoController", ['$scope', '$rootScope', '$http' ,'$interval' ,
   // });
 
   //直接获取基础数据
+  $rootScope.listData0={};
   $http.get("/angular/json/profile.json").then(function(res) {
     $rootScope.profileData = res.data;
   });
@@ -41,6 +42,7 @@ app.controller("todoController", ['$scope', '$rootScope', '$http' ,'$interval' ,
   });
   $http.get("/angular/json/todoLists.json").then(function(res) {
     $rootScope.listData = res.data;
+    $rootScope.listData0 = _.cloneDeep($rootScope.listData);
   });
   $http.get("/angular/json/detiles.json").then(function(res) {
     $rootScope.detiles = res.data;
@@ -58,33 +60,38 @@ app.controller("todoController", ['$scope', '$rootScope', '$http' ,'$interval' ,
   };
 
   this.search = function(){
-    $rootScope.baseData0 =_.cloneDeep($rootScope.baseData);
-    _.forEach($rootScope.listData, function(v ,k){
-      _.forEach(v, function(val ,key){
-        console.log($scope.searchText);
-        if (!(val.title.indexOf($scope.searchText)+1)&&(!!$scope.searchText)) {
-          v.splice(_.findIndex(v ,val),1);
-        }
-      })
-    })
+    $rootScope.listData =_.cloneDeep($rootScope.listData0);
+    if (!$scope.searchText) {
+    }else{
+      angular.forEach($rootScope.listData, function(data,index,array){
+        angular.forEach(data, function(d,i,a){
+          if (!(d.title.indexOf($scope.searchText)+1)) {
+            console.log(d.title);
+            _.remove(data, d);
+            
+          }
+        });
+      });
+    };
+    //bug
+    if (!$scope.searchText) {
+    }else{
+      angular.forEach($rootScope.listData, function(data,index,array){
+        angular.forEach(data, function(d,i,a){
+          if (!(d.title.indexOf($scope.searchText)+1)) {
+            console.log(d.title);
+            _.remove(data, d);
+            
+          }
+        });
+      });
+    }
+    // console.log(index);
 
   };
 
 
 
-  // $socpe. = 
-  // var getTagsBaseDate = function(){
-  //   var 
-  //   _.forEach($scope.listData, function(val){
-  //     if (val.tags.indexOf('1') +1) {
-  //       console.log("1");
-  //     }
-  //   });
-  // };
-
-
-
-  // $timeout(getTagsBaseDate, 0);
 
 
 

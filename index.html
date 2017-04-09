@@ -17,7 +17,7 @@
         </tr>  
     </table>  
       
-    <input id="wei" type="text" ng-focus="concentrate()" >      
+    <input id="wei" type="text" ng-focus="concentrate()" ng-model="searchText">      
     <input  type="button" ng-click="search()" value="搜索">  
 </body>  
 <script src="src/angular.js"></script>  
@@ -56,7 +56,7 @@
             //实现查询功能  
             $scope.search=function(){  
                 console.log(11);  
-                $scope.arr1=$filter("filter")(arr,document.getElementById("wei").value);  
+                $scope.arr1=$filter("filter")(arr,$scope.searchText);  
             }  
               
         }]);  
