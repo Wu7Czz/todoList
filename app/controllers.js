@@ -1,4 +1,4 @@
-app.controller("todoController", ['$scope', '$rootScope', '$http', 'getDataService' ,function($scope, $rootScope, $http, getDataService) {
+app.controller("todoController", ['$scope', '$rootScope', '$http' ,'$interval' ,'$filter' ,'$timeout' ,'getDataService' ,function($scope, $rootScope, $http ,$interval ,$filter ,$timeout, getDataService) {
   
   // //依靠其服务 from 获取基础数据
   // var profile = "profile";
@@ -34,26 +34,61 @@ app.controller("todoController", ['$scope', '$rootScope', '$http', 'getDataServi
 
   //直接获取基础数据
   $http.get("/angular/json/profile.json").then(function(res) {
-    $scope.profileData = res.data;
+    $rootScope.profileData = res.data;
   });
   $http.get("/angular/json/base.json").then(function(res) {
-    $scope.baseData = res.data;
+    $rootScope.baseData = res.data;
   });
   $http.get("/angular/json/todoLists.json").then(function(res) {
-    $scope.listData = res.data;
+    $rootScope.listData = res.data;
   });
   $http.get("/angular/json/detiles.json").then(function(res) {
-    $scope.detiles = res.data;
+    $rootScope.detiles = res.data;
   });
 
 
 
-  _.forEach(["2", "3"], function(val, key) {
-    if (_.indexOf(val, "1") + 1) {
-      console.log("1");
-    };
+  this.hi = function() {
+    // console.log($scope.profileData);
+    // console.log($scope.baseData);
+    console.log($scope.listDataa);
+    // console.log($scope.baseData);
+    // console.log($scope.baseData['tags']);
 
-  });
+  };
+
+  this.search = function(){
+    $rootScope.baseData0 =_.cloneDeep($rootScope.baseData);
+    _.forEach($rootScope.listData, function(v ,k){
+      _.forEach(v, function(val ,key){
+        console.log($scope.searchText);
+        if (!(val.title.indexOf($scope.searchText)+1)&&(!!$scope.searchText)) {
+          v.splice(_.findIndex(v ,val),1);
+        }
+      })
+    })
+
+  };
+
+
+
+  // $socpe. = 
+  // var getTagsBaseDate = function(){
+  //   var 
+  //   _.forEach($scope.listData, function(val){
+  //     if (val.tags.indexOf('1') +1) {
+  //       console.log("1");
+  //     }
+  //   });
+  // };
+
+
+
+  // $timeout(getTagsBaseDate, 0);
+
+
+
+
 
 
 }]);

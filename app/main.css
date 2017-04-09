@@ -1,5 +1,9 @@
 * {
     margin: 0;
+    font-size: 16px;
+    line-height: 16px;
+    text-overflow:ellipsis;
+    user-select:none;
 
 }
 
@@ -9,3 +13,8 @@ li {
 a{
     text-decoration:none; 
 }
+
+.listBox li {
+
+}
+
